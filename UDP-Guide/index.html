@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="en">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/udp/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/udp/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/udp/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/udp/images/apple-touch-icon.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/udp/images/favicon-32x32.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/udp/images/favicon-16x16.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/udp/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Summary: The Unity Distribution Platform (UDP) is a game distribution platform where you can store your games in the Unity repository and publish them to Unity’s partner stores collectively. The Unity">
+<meta property="og:type" content="website">
+<meta property="og:title" content="&lt;b&gt;Developer&#39;s Guide for Unity Distribution Platform (UDP)&lt;&#x2F;b&gt;">
+<meta property="og:url" content="https://unitytech.github.io/udp/UDP-Guide/index.html">
+<meta property="og:site_name" content="Unity Distribution Platform">
+<meta property="og:description" content="Summary: The Unity Distribution Platform (UDP) is a game distribution platform where you can store your games in the Unity repository and publish them to Unity’s partner stores collectively. The Unity">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/standalone-game-initialize.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/online-game.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/Create-a-Game-Settings-file.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/Unity-clent-updated.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/IAP-Catalog-updated.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/GameManager.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/UDP-Login.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/UDP-Purchase-22.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/UDP-PurchaseError-24.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/UDP-Query-18.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/publish-gstore.png">
+<meta property="og:image" content="https://unitytech.github.io/udp/UDP-Guide/images/test-accounting-setting.png">
+<meta property="og:updated_time" content="2018-03-22T07:44:29.516Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="&lt;b&gt;Developer&#39;s Guide for Unity Distribution Platform (UDP)&lt;&#x2F;b&gt;">
+<meta name="twitter:description" content="Summary: The Unity Distribution Platform (UDP) is a game distribution platform where you can store your games in the Unity repository and publish them to Unity’s partner stores collectively. The Unity">
+<meta name="twitter:image" content="https://unitytech.github.io/udp/UDP-Guide/images/standalone-game-initialize.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/udp/',
+    scheme: 'Muse',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="https://unitytech.github.io/udp/UDP-Guide/"/>
+
+
+
+
+
+  <title><b>Developer's Guide for Unity Distribution Platform (UDP)</b> | Unity Distribution Platform</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/udp/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Unity Distribution Platform</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/udp/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/udp/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-document">
+          <a href="/udp/UDP-Guide/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-book"></i> <br />
+            
+            Document
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+	<h1 class="post-title" itemprop="name headline"><b>Developer's Guide for Unity Distribution Platform (UDP)</b></h1>
+
+
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p><br><br><b>Summary</b>: The Unity Distribution Platform (UDP) is a game distribution platform where you can store your games in the Unity repository and publish them to Unity’s partner stores collectively. The Unity SDK for UDP is an easy way to integrate your games with UDP. This docucument guides you through initializing the intergation with UDP, configuraing SDK for UDP, and performing technical intergations.</p>
+<div class="toc">
+
+<!-- toc -->
+<ul>
+<li><a href="#overview">Overview</a></li>
+<li><a href="#integration-with-udp">Integration with UDP</a><ul>
+<li><a href="#integration-with-udp-for-standalone-games">Integration with UDP for Standalone Games</a></li>
+<li><a href="#integration-with-udp-for-online-games">Integration with UDP for Online Games</a></li>
+</ul>
+</li>
+<li><a href="#configuring-the-sdk-for-udp">Configuring the SDK for UDP</a><ul>
+<li><a href="#generating-a-unity-client-and-test-accounts">Generating a Unity client and test accounts</a></li>
+<li><a href="#configuring-the-iap-for-udp">Configuring the IAP for UDP</a></li>
+<li><a href="#testing-the-sdk-for-udp">Testing the SDK for UDP</a></li>
+<li><a href="#publishing-your-games-to-gstore">Publishing your games to GSTORE</a></li>
+</ul>
+</li>
+<li><a href="#technical-integration">Technical Integration</a><ul>
+<li><a href="#client-side-integration">Client-Side Integration</a></li>
+<li><a href="#setting-up-purchase-listener">Setting up purchase listener</a></li>
+<li><a href="#server-side-integration">Server-Side Integration</a></li>
+</ul>
+</li>
+</ul>
+<!-- tocstop -->
+</div>
+
+<h2><span id="overview">Overview</span><a href="#overview" class="header-anchor">#</a></h2><p>The Unity Distribution Platform (UDP) is a game distribution platform where you can store your games in the Unity repository and publish them to Unity’s partner stores collectively. The Unity SDK for UDP is an easy way to integrate your games with UDP. </p>
+<h2><span id="integration-with-udp">Integration with UDP</span><a href="#integration-with-udp" class="header-anchor">#</a></h2><p>Before you manage your game via UDP, you need to integrate your games with UDP. The integration is consisted of initialization and connection to the purchase service. </p>
+<h3><span id="integration-with-udp-for-standalone-games">Integration with UDP for Standalone Games</span><a href="#integration-with-udp-for-standalone-games" class="header-anchor">#</a></h3><p>To initialize the integration with UDP, you need to provide your Unity client ID and Unity client key to the Unity SDK. The Unity SDK will trigger the initialization callback. </p>
+<!-- ![](images/standalone-game-initialize.png) -->
+<p><img src="images/standalone-game-initialize.png" width="400px"></p>
+<h3><span id="integration-with-udp-for-online-games">Integration with UDP for Online Games</span><a href="#integration-with-udp-for-online-games" class="header-anchor">#</a></h3><p>For online games, the game server can verify the login and receive purchase order callback or initiatively query purchase order to/from the Unity IAP server.<br><!-- ![](images/online-game.png) --><br><img src="images/online-game.png" width="1000px"></p>
+<h2><span id="configuring-the-sdk-for-udp">Configuring the SDK for UDP</span><a href="#configuring-the-sdk-for-udp" class="header-anchor">#</a></h2><p>Before publishing your games via unity distribution platform (UDP), configure the software development kit (SDK) and test your configuration. Here are the things that you need to do:</p>
+<ul>
+<li>Generating a Unity client and test accounts</li>
+<li>Configuring the in-app purchase (IAP) for UDP</li>
+<li>Testing your configuration</li>
+</ul>
+<h3><span id="generating-a-unity-client-and-test-accounts">Generating a Unity client and test accounts</span><a href="#generating-a-unity-client-and-test-accounts" class="header-anchor">#</a></h3><p>You can manage your games in UDP via a Unity client and test your games with test accounts. Take the following steps to generate a Unity client and test accounts: </p>
+<ol>
+<li><p>Open Unity in the <code>STAGING</code> or <code>PROD</code> environment. In the <code>PROD</code> environment, just open the Unity Editor; in <code>STAGING</code> environment, open Unity with the following demands:</p>
+<blockquote>
+<p>For Mac OS:</p>
+<ul>
+<li>open /Applications/Unity/Unity.app –args -cloudEnvironment staging</li>
+</ul>
+<p>For Windows:</p>
+<ul>
+<li>C:/Program Files(86)/Unity/Editor/Unity.exe –args -cloudEnvironment staging</li>
+</ul>
+</blockquote>
+</li>
+<li><p>Log in with an <code>STAGING</code> or <code>PROD</code> account. If you haven’t got a Unity account, register one in <a href="https://id-staging.unity.com" target="_blank" rel="noopener">STAGING ID Portal</a> or <a href="https://id.unity.com" target="_blank" rel="noopener">PROD ID Portal</a>.</p>
+</li>
+<li><p>Create or open a project and import the SDK.<br>Note: Make sure the project ID is consistent with the current environment. If not, click <code>Unlink project</code> and create a new Unity project ID. </p>
+</li>
+<li><p>Create a <code>Game Settings.asset</code> file.</p>
+<!-- ![](images/Create-a-Game-Settings-file.png) -->
+<p><img src="images/Create-a-Game-Settings-file.png" width="300px" align="middle"></p>
+</li>
+<li>Click the <code>Game Settings.asset</code> file under <code>Assets &gt; Plugins &gt; UDP &gt; UdpSupport &gt; Resources</code> and generate a Unity client and test accounts.<!-- ![](images/Generate-a-Unity-client-and-test-accounts.png) -->
+<img src="images/Unity-clent-updated.png" width="400px"><br>In the above screenshot, you may need to use the following fields in <code>UDP Client Settings</code>:</li>
+</ol>
+<ul>
+<li><code>Client ID</code> is the issued client identifier. </li>
+<li><code>Client RSA Public Key</code> is used to validate the purchase signature for UDP.</li>
+<li><code>Client Secret</code> is the key to ecrypting the receipt sent to developers’ server (Callback URL).</li>
+<li><code>Callback URL</code> provides your own server to receive the stores’ callbacks.</li>
+</ul>
+<p>Note: <code>Client Key</code> is not used currently.</p>
+<h3><span id="configuring-the-iap-for-udp">Configuring the IAP for UDP</span><a href="#configuring-the-iap-for-udp" class="header-anchor">#</a></h3><p>Take the following steps to configure the IAP for UDP:</p>
+<ol>
+<li><p>Choose <code>IAP Catalog</code> (<code>Window</code> &gt; <code>Unity UDP</code> &gt; <code>IAP Catalog</code>). </p>
+</li>
+<li><p>Input your product information and click <code>Create Product</code> to sync with the server. To add more products, Click <code>Add Product Draft</code>.<br>Note: Specify the product price, or players can’t purchase products in game stores.</p>
+<!-- ![](images/IAP-Catalog.png) -->
+<p><img src="images/IAP-Catalog-updated.png" width="500px"></p>
+ 
+</li>
+<li><p>Click the <code>GameManager</code> GameObject in <code>Hierarchy</code> and enter the slugs of your products into <code>Product_1</code> and <code>Product_2</code>. You can add more products using the <code>GameManager.cs</code> file.</p>
+<!-- ![](images/GameManager.png) -->
+<p><img src="images/GameManager.png" width="400px"></p>
+ 
+</li>
+</ol>
+<h3><span id="testing-the-sdk-for-udp">Testing the SDK for UDP</span><a href="#testing-the-sdk-for-udp" class="header-anchor">#</a></h3><p>After you complete the configuration, test the SDK for UDP, as follows:</p>
+<ol>
+<li><p>Open the <code>SampleScene.scene</code> asset to show the demo. </p>
+</li>
+<li><p>Build and open the demo.</p>
+</li>
+<li><p>Click <code>Init</code> and log in with a test account. </p>
+<!-- ![](images/UDP-Login.png) -->
+<p><img src="images/UDP-Login.png" width="300px"></p>
+
+</li>
+<li><p>Click <code>Buy</code> or <code>Buy&amp;Consume</code> to buy products. You can see the purchase information on the user interface. </p>
+<!-- ![](images/UDP-Purchase-22.png) -->
+<p><img src="images/UDP-Purchase-22.png" width="300px"></p>
+
+</li>
+<li><p>If the purchased item hasn’t been consumed, you can’t purchase it again.</p>
+<!-- ![](images/UDP-PurchaseError-24.png) -->
+<p><img src="images/UDP-PurchaseError-24.png" width="300px"></p>
+
+</li>
+<li><p>Click <code>QueryInventory</code> to see all the products and purchases and click <code>Query&amp;Consume</code> to consume the unconsumed purchases.</p>
+<!-- ![](images/UDP-Query-18.png) -->
+<p><img src="images/UDP-Query-18.png" width="300px"></p>
+</li>
+</ol>
+<h3><span id="publishing-your-games-to-gstore">Publishing your games to GSTORE</span><a href="#publishing-your-games-to-gstore" class="header-anchor">#</a></h3><p>After you have generated a Unity client and test accounts, you can publish your games to GSTORE with the test accounts. </p>
+<ol>
+<li>In the <code>Inspector</code> tab of the <code>GameSetting.asset</code> file, click <code>Edit Game Information on Portal</code>.</li>
+<li>Choose your game in the Portal and fill in the game information.</li>
+<li>Choose <code>PUBLISH GAME</code>&gt;<code>Test Accounts</code>.<br><img src="images/publish-gstore.png" width="500px"></li>
+<li>Click  <code>SYNC to GPlay</code> to sync your test accounts to GSTORE.<br><img src="images/test-accounting-setting.png" width="500px"><br>Note: You can only publish your games to GSTORE when you have a GSTORE account.</li>
+<li>Click <code>New Publish</code> and follow the instructions.</li>
+</ol>
+<h2><span id="technical-integration">Technical Integration</span><a href="#technical-integration" class="header-anchor">#</a></h2><h3><span id="client-side-integration">Client-Side Integration</span><a href="#client-side-integration" class="header-anchor">#</a></h3><p>The client-side integration is consisted of the following steps:</p>
+<ul>
+<li>Initializing the integration</li>
+<li>Setting up the purchase listener</li>
+<li>Setting up the purchase</li>
+<li>Setting up the consuming</li>
+<li>Setting up the query inventory </li>
+</ul>
+<h4><span id="initializing-the-integration">Initializing the Integration</span><a href="#initializing-the-integration" class="header-anchor">#</a></h4><p>To initialize the UDP SDK, Call <code>StoreService.Initialize()</code> with <code>AppInfo</code> and <code>IInitCallback</code>.<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoreService.Initialize(AppInfo, IInitCallback)</span><br></pre></td></tr></table></figure></p>
+<p>If you create a client using the <code>Game Settings.asset</code> file, <code>AppInfo</code> can be retrieved by reading the file.<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">AppInfo appInfo = <span class="keyword">new</span> AppInfo();</span><br><span class="line">AppStoreSettings appStoreSettings = Resources.Load&lt;AppStoreSettings&gt;(<span class="string">"GameSettings"</span>);</span><br><span class="line">appInfo.AppSlug = appStoreSettings.AppSlug;</span><br><span class="line">appInfo.ClientId = appStoreSettings.UnityClientID;</span><br><span class="line">appInfo.ClientKey = appStoreSettings.UnityClientKey;</span><br><span class="line">appInfo.RSAPublicKey = appStoreSettings.UnityClientRSAPublicKey;</span><br></pre></td></tr></table></figure></p>
+<p>Otherwise, <code>AppInfo</code> must be filled manually (for Unity whose version is lower than 5.6.1).</p>
+<p><code>InitListener</code> notifies you whether the initialization succeeds.<br><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">InitCallback</span> : <span class="title">IInitListener</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnInitialized</span>(<span class="params">UserInfo userInfo</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"Initialization suceeded"</span>);</span><br><span class="line">        <span class="comment">// Developers can call queryInventory here</span></span><br><span class="line">        <span class="comment">// to see if there are purchases needed to be consumed        </span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnInitializeFailed</span>(<span class="params"><span class="keyword">string</span> message</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"Initialization failed: "</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3><span id="setting-up-purchase-listener">Setting up purchase listener</span><a href="#setting-up-purchase-listener" class="header-anchor">#</a></h3><p><code>IPurchaseListener</code> is the listener that tells you the result of all purchase-related events.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title">PurchaseCallback</span> : <span class="title">IPurchaseListener</span></span><br><span class="line">&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPurchase</span>(<span class="params">PurchaseInfo purchaseInfo</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Purchase succeeded.</span></span><br><span class="line">        <span class="comment">// If this is a consumable product, developer should consume it here.</span></span><br><span class="line">        <span class="comment">// Otherwise, deliver the product</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPurchaseFailed</span>(<span class="params"><span class="keyword">string</span> message, PurchaseInfo purchaseInfo</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Debug.Log(<span class="string">"Purchase Failed: "</span> + message);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPurchaseRepeated</span>(<span class="params"><span class="keyword">string</span> productCode</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Some store doesn't support queryInventory,</span></span><br><span class="line">        <span class="comment">// when buying non-consumable products repeatly,</span></span><br><span class="line">        <span class="comment">// This listener will be triggered.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPurchaseConsume</span>(<span class="params">PurchaseInfo purchaseInfo</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Consuming succeedes</span></span><br><span class="line">        <span class="comment">// Developer should deliver the product here        </span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnPurchaseConsumeFailed</span>(<span class="params"><span class="keyword">string</span> message, PurchaseInfo purchaseInfo</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Consuming failed</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnQueryInventory</span>(<span class="params">Inventory inventory</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Querying inventory succeeded.</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">OnQueryInventoryFailed</span>(<span class="params"><span class="keyword">string</span> message</span>)</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">// Querying inventory failed.</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="setting-up-the-purchase">Setting up the purchase</span><a href="#setting-up-the-purchase" class="header-anchor">#</a></h4><p><code>productId</code> is the what the player wants to buy.<br><code>cpOrderId</code> is a unique order id defined by yourself. If you can pass a null, UDP SDK generates a UUID automatically.<br><code>developerPayload</code> is whatever you want to pass and it will be passed back after the purchase is finished.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoreService.Purchase(<span class="string">"productId"</span>, <span class="string">"cpOrderId"</span>, <span class="string">"developerPayload"</span>, PurchaseCallback);</span><br></pre></td></tr></table></figure>
+<h4><span id="setting-up-the-consuming">Setting up the consuming</span><a href="#setting-up-the-consuming" class="header-anchor">#</a></h4><p>The consuming is used to make sure purchases are successful. After a successful consuming, a consumable product is delivered to the player.</p>
+<figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">StoreService.ConsumePurchase(PurchaseInfo, IPurchaseListener);</span><br></pre></td></tr></table></figure>
+<p><code>PurchaseInfo</code> should be the one returned by  <code>OnPurchase</code>.</p>
+<h4><span id="setting-up-the-querying-inventory">Setting up the querying inventory</span><a href="#setting-up-the-querying-inventory" class="header-anchor">#</a></h4><figure class="highlight csharp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">StoreService.QueryInventory(productIds, callback);</span><br><span class="line"><span class="comment">// or</span></span><br><span class="line">StoreService.QueryInventory(callback);</span><br><span class="line"><span class="comment">// or</span></span><br></pre></td></tr></table></figure>
+<p><code>QueryInventory</code> will return the information of products passed as the argument. Also, it will return all the purchaes which are not consumed. Developers could call this method after a successful initialization in case that some purchases are paid but the products are not delivered due to app crash.</p>
+<h4><span id="client-side-validation">Client-Side Validation</span><a href="#client-side-validation" class="header-anchor">#</a></h4><p>UDP performs the client-side validation automatically. When partner stores return the payload and signature after a successful purchase, UDP SDK validates the signature. If the validation fails, the purchase fails accordingly.</p>
+<h3><span id="server-side-integration">Server-Side Integration</span><a href="#server-side-integration" class="header-anchor">#</a></h3><h4><span id="callback-notification">Callback Notification</span><a href="#callback-notification" class="header-anchor">#</a></h4><p>The Unity Channel server notifies the game server with the payment result. Implement the HTTP GET and accept the following query parameters.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Format</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>payload</td>
+<td>Yes</td>
+<td>the order content which is in Json String format (details can be seen in the table below)</td>
+<td>Json String</td>
+</tr>
+<tr>
+<td>signature</td>
+<td>Yes</td>
+<td>RSA signature with the payload</td>
+<td>String</td>
+</tr>
+<tr>
+<td>certificate</td>
+<td>Yes</td>
+<td>X.509 certificate that contains the RSA public key for the signature</td>
+<td>Base64 encoded String</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="using-the-certificate">Using the certificate</span><a href="#using-the-certificate" class="header-anchor">#</a></h4><p>You can verify the certificate using the Unity Client RSA Public Key. If the certificate pass the verification, extract the RSA public key from the certificate and use this key to verify the payload with the signature by SHA1 algorithm.</p>
+<p>Here is the code sample in Java:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Base64;</span><br><span class="line"><span class="keyword">import</span> java.security.cert.CertificateFactory;</span><br><span class="line"><span class="keyword">import</span> java.security.cert.X509Certificate;</span><br><span class="line"><span class="keyword">import</span> java.security.spec.X509EncodedKeySpec;</span><br><span class="line"><span class="keyword">import</span> java.security.KeyFactory;</span><br><span class="line"><span class="keyword">import</span> java.security.PublicKey;</span><br><span class="line"><span class="keyword">import</span> java.security.Signature;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">verify</span> <span class="params">(String publicKey, String certificate, String payload, String signature)</span> </span>&#123;</span><br><span class="line">	<span class="comment">// verify certificate</span></span><br><span class="line">	Base64.Decoder decoder = Base64.getDecoder();</span><br><span class="line">	<span class="keyword">byte</span>[] certBytes = decoder.decode(certificate.getBytes(<span class="string">"UTF-8"</span>));</span><br><span class="line">	CertificateFactory certFactory = CertificateFactory.getInstance(<span class="string">"X.509"</span>);</span><br><span class="line">	X509Certificate cert = (X509Certificate)certFactory.generateCertificate(<span class="keyword">new</span> ByteArrayInputStream(certBytes));</span><br><span class="line">	<span class="keyword">byte</span>[] keyBytes = decoder.decode(publicKey.getBytes(<span class="string">"UTF-8"</span>));</span><br><span class="line">	X509EncodedKeySpec keySpec = <span class="keyword">new</span> X509EncodedKeySpec(keyBytes);</span><br><span class="line">	KeyFactory fact = KeyFactory.getInstance(<span class="string">"RSA"</span>);</span><br><span class="line">	PublicKey pubKey = fact.generatePublic(keySpec);</span><br><span class="line">	<span class="keyword">if</span> (cert.notAfter.before(<span class="keyword">new</span> Date())) &#123;</span><br><span class="line">		<span class="comment">// expired certifcate, verification failed</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">try</span> &#123;</span><br><span class="line">		cert.verify(pubKey);</span><br><span class="line">	&#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">		<span class="comment">// verification failed</span></span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">// verify signature</span></span><br><span class="line">	Signature signature = Signature.getInstance(<span class="string">"SHA1WithRSA"</span>);</span><br><span class="line">	signature.initVerify(cert.getPublicKey());</span><br><span class="line">	signature.update(payload.getBytes(<span class="string">"UTF-8"</span>));</span><br><span class="line">	<span class="keyword">boolean</span> verified = signature.verify(decoder.decode(signature.getBytes(<span class="string">"UTF-8"</span>)));</span><br><span class="line">	<span class="keyword">if</span> (!verified) &#123;</span><br><span class="line">		<span class="comment">// verification failed</span></span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>payload content:<br>Here is the content of payload JSON.</p>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Format</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpOrderId</td>
+<td>Yes</td>
+<td>order id assigned by Game</td>
+<td>String</td>
+<td>66mea52wne</td>
+</tr>
+<tr>
+<td>status</td>
+<td>Yes</td>
+<td>status of the orderAttempt</td>
+<td>String</td>
+<td>SUCCESS</td>
+</tr>
+<tr>
+<td>amount</td>
+<td>Yes</td>
+<td>pay fee of this order</td>
+<td>String</td>
+<td>1</td>
+</tr>
+<tr>
+<td>productId</td>
+<td>Yes</td>
+<td>product id of the product associated with the order</td>
+<td>String</td>
+<td>Product_1</td>
+</tr>
+<tr>
+<td>payTime</td>
+<td>Yes</td>
+<td>order paid time</td>
+<td>ISO8601 yyyy-MM-ddThh:mm:ssZ, UTC timezone</td>
+<td>2017-03-08T06:43:20Z</td>
+</tr>
+<tr>
+<td>country</td>
+<td>Yes</td>
+<td>country</td>
+<td>ISO 3166-2</td>
+<td>US</td>
+</tr>
+<tr>
+<td>currency</td>
+<td>Yes</td>
+<td>currency</td>
+<td>ISO 4217 or cryptocurrency type</td>
+<td>USD</td>
+</tr>
+<tr>
+<td>cryptocurrency</td>
+<td>Yes</td>
+<td>if the currency is cryptocurrency</td>
+<td>Boolean</td>
+<td>False</td>
+</tr>
+<tr>
+<td>quantity</td>
+<td>Yes</td>
+<td>quantity of the product</td>
+<td>Integer</td>
+<td>1</td>
+</tr>
+<tr>
+<td>clientId</td>
+<td>Yes</td>
+<td>client id returned after Game onboarding to Unity IAP</td>
+<td>String</td>
+<td>P-wU0n9pbyQ1ulks4kHX_Q</td>
+</tr>
+<tr>
+<td>extension</td>
+<td>No</td>
+<td>extesion</td>
+<td>String</td>
+<td>“{\”abc\” : \”123\”}”</td>
+</tr>
+</tbody>
+</table>
+<h4><span id="acknowledgement-callback">Acknowledgement Callback</span><a href="#acknowledgement-callback" class="header-anchor">#</a></h4><p>You only need to set up Acknowledgement Callback when you integrate with Gstore. Otherwise you can choose not to configure the integration. </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">GET</span><br><span class="line">/v1/order-attempts/callback/ack?cpOrderId=&lt;cpOrderId&gt;&amp;clientId=&lt;clientId&gt;&amp;orderQueryToken=&lt;orderQueryToken&gt;&amp;sign=&lt;sign&gt;</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>Attribute Name</th>
+<th>Required?</th>
+<th>Description</th>
+<th>Format</th>
+<th>Sample</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>cpOrderId</td>
+<td>Yes</td>
+<td>order id assigned by game , or Unity generated id if game will not generate it</td>
+<td>String</td>
+<td>66mea52wne</td>
+</tr>
+<tr>
+<td>clientId</td>
+<td>Yes</td>
+<td>client id assigned by Unity after onboarding</td>
+<td>String</td>
+<td>Q4AnJDW2-rxLAPujqrk1zQ</td>
+</tr>
+<tr>
+<td>orderQueryToken</td>
+<td>Yes</td>
+<td>order query token returned by client SDK when finishing purchase</td>
+<td>String</td>
+<td>ebaseakc=</td>
+</tr>
+<tr>
+<td>sign</td>
+<td>Yes</td>
+<td>md5 with cpOrderId, clientId, orderQueryToken and Unity Client Secret. Check the algorithm in the end of the doc</td>
+<td>String</td>
+<td>7277da780d1102864ee5818c2730c74e</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Response: Status 200</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+
+          
+  
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">Unity Technology</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/udp/archives/">
+              
+                  <span class="site-state-item-count">11</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+          </div>
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Unity Technology</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/udp/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/udp/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/udp/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/udp/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/udp/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/udp/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/udp/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/udp/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/udp/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/udp/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/udp/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
